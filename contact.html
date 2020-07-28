@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="contact.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="main_logo.png"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="slider">
+           <img src="slider_11.jpg" width="100%">
+        </div>
+        <h1 class="h11">CONTACT US</h1>
+        
+        
+        <form id="regForm">
+          <h2>Register:</h2>
+          <div class="tab">Name:
+            <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+            <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+          </div>
+          <div class="tab">Contact Info:
+            <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+            <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+          </div>
+          <div class="tab">Birthday:
+            <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+            <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+            <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+          </div>
+          <div class="tab">Login Info:
+            <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+            <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+          </div>
+          <div style="overflow:auto;">
+            <div style="float:right;">
+              <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+              <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+          </div>
+        </form>
+        
+        <p class="p3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.120940687459!2d-73.99048131481561!3d40.71535404534829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a2845c4a543%3A0xf28678cdeaa1208c!2zNzMgQ2FuYWwgU3QsIE5ldyBZb3JrLCBOWSAxMDAwMtiMINin2YTZiNmE2KfZitin2Kog2KfZhNmF2KrYrdiv2Kk!5e0!3m2!1sar!2seg!4v1594572466710!5m2!1sar!2seg" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
+        
+        <div class="black">
+           <div class="run">
+               <a href="index.html"><img src="main_logo.png"></a>
+               <p class="p4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly</p>
+           </div>
+           <div class="address">
+               <h3 class="hh3">ADDRESS</h3>
+               <pre class="p5">
+               Address: 73 Canal Street, New York, NY
+               Tel: +1 123 456 789
+               Fax: +1 123 456 789
+               Email: support@vigorfit.com</pre>
+               <div class="social">
+                   <a class="a1" href="https://www.facebook.com" target="_blank" style="color:#2458A0"><i class="fab fa-facebook"></i></a>
+                   <a class="a1"
+                   href="https://www.twitter.com" target="_blank" style="color:skyblue"><i class="fab fa-twitter"></i></a>
+                   <a class="a1" href="https://www.gmail.com" target="_blank" style="color:red"><i class="fab fa-google-plus-g"></i></a>
+                   <a class="a1" href="https://www.linkedin.com" target="_blank" style="color:#1447AD"><i class="fab fa-linkedin-in"></i></a>
+                   <a class="a1" href="https://www.youtube.com" target="_blank" style="color:red"><i class="fab fa-youtube"></i></a>
+               </div>
+           </div>
+           <div class="time">
+               <h3 class="hhh3">OUR TIMINGS</h3>
+               <pre class="p6">
+                 Monday
+                 Tuesday
+                 Thursday
+                 Friday
+                 Saturday
+                 Sunday
+               </pre>
+           </div>   
+       </div>
+        
+        
+        <script>
+            var currentTab = 0;
+            showTab(currentTab);
+
+            function showTab(n) {
+              var x = document.getElementsByClassName("tab");
+              x[n].style.display = "block";
+              if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+              } else {
+                document.getElementById("prevBtn").style.display = "inline";
+              }
+              if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+              } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+              }
+              fixStepIndicator(n)
+            }
+
+            function nextPrev(n) {
+              var x = document.getElementsByClassName("tab");
+              if (n == 1 && !validateForm()) return false;
+              x[currentTab].style.display = "none";
+              currentTab = currentTab + n;
+              if (currentTab >= x.length) {
+                document.getElementById("regForm").submit();
+                return false;
+              }
+              showTab(currentTab);
+            }
+
+            function validateForm() {
+              var x, y, i, valid = true;
+              x = document.getElementsByClassName("tab");
+              y = x[currentTab].getElementsByTagName("input");
+              for (i = 0; i < y.length; i++) {
+                if (y[i].value == "") {
+                  y[i].className += " invalid";
+                  valid = false;  
+                }
+              }
+              if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+              }
+              return valid;
+            }
+
+            function fixStepIndicator(n) {
+              var i, x = document.getElementsByClassName("step");
+              for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+              }
+              x[n].className += " active";
+            }
+       </script>
+
+    </body>
+</html>
