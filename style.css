@@ -42,6 +42,25 @@ nav{
     font-size:5em;
     font-weight:lighter;
 }
+.BTN{
+    position:relative;
+    top:-530px;
+    left:160px;
+    z-index:2;
+    background-color:#39B475;
+    color:white;
+    border:1px solid black;
+    padding:15px 30px;
+    cursor:pointer;
+    font-size:22px;
+    font-weight:bold;
+    transition:background-color 1s;
+    transition:color 1s;
+}
+.BTN:hover{
+    background-color:white;
+    color:black;
+}
 .index{
     position:relative;
     bottom:395px;
